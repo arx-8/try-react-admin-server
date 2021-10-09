@@ -1,12 +1,11 @@
 import express from "express"
 import { getPosts } from "./posts"
-import { getUserByID, getUsers } from "./users"
+import { getUserByID, getUsers, putUserByID } from "./users"
 
 const app: express.Express = express()
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
 
-// CORS 対応（というか完全無防備：本番環境ではだめ絶対）
+// for CORS
 app.use(
   (
     _req: express.Request,
@@ -22,7 +21,7 @@ app.use(
       "PUT",
     ])
 
-    const arrowedHeaders = ["authorization", "x-total-count"]
+    const arrowedHeaders = ["authorization", "x-total-count", "content-type"]
     res.header("access-control-allow-headers", arrowedHeaders)
     res.header("access-control-expose-headers", arrowedHeaders)
     next()
@@ -35,4 +34,5 @@ app.listen(9999, () => {
 
 app.get("/users", getUsers)
 app.get("/users/:id", getUserByID)
+app.put("/users/:id", putUserByID)
 app.get("/posts", getPosts)

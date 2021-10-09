@@ -1,5 +1,6 @@
 import type { Request, Response } from "express"
 import type { User } from "./domain/User"
+import { objectKeys } from "./utils"
 
 const data: User[] = [
   {
@@ -250,4 +251,37 @@ export const getUserByID = (req: Request<{ id: string }>, res: Response) => {
     return
   }
   res.send(JSON.stringify(found))
+}
+
+export const putUserByID = (
+  req: Request<{ id: string }, unknown, User>,
+  res: Response
+) => {
+  res.type("application/json")
+
+  const found = data.find((d) => d.id === Number(req.params.id))
+  if (found == null) {
+    res.statusCode = 404
+    res.send(JSON.stringify({ message: "Data not found" }))
+    return
+  }
+
+  // エラー発生時の挙動確認のため
+  if (req.body.name === "error") {
+    res.statusCode = 400
+    res.send(
+      JSON.stringify({
+        code: "E400",
+        message: "Bad request",
+      })
+    )
+    return
+  }
+
+  objectKeys(found).forEach((key) => {
+    // @ts-expect-error 問題ない get value by key
+    found[key] = req.body[key]
+  })
+
+  res.send(JSON.stringify({ id: found.id }))
 }

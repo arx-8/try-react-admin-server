@@ -6,6 +6,32 @@ GET http://localhost:9999/users
 
 GET http://localhost:9999/users/3
 
+### update user by id
+
+PUT http://localhost:9999/users/3
+content-type: application/json
+
+{
+  "id": 3,
+  "name": "NEW NAME",
+  "username": "Karianne",
+  "email": "Julianne.OConner@kory.org",
+  "address": {
+    "street": "Hoeger Mall",
+    "suite": "Apt. 692",
+    "city": "South Elvis",
+    "zipcode": "53919-4257",
+    "geo": { "lat": "29.4572", "lng": "-164.2990" }
+  },
+  "phone": "493-170-9623 x156",
+  "website": "kale.biz",
+  "company": {
+    "name": "Robel-Corkery",
+    "catchPhrase": "Multi-tiered zero tolerance productivity",
+    "bs": "transition cutting-edge web services"
+  }
+}
+
 ### posts
 
 GET http://localhost:9999/posts
@@ -15,6 +41,31 @@ GET http://localhost:9999/posts
 
 #### users
 GET http://jsonplaceholder.typicode.com/users?_end=25&_order=ASC&_sort=id&_start=0
+
+#### update user by id
+PUT http://jsonplaceholder.typicode.com/users/1
+content-type: application/json
+
+{
+  "id": 3,
+  "name": "NEW NAME",
+  "username": "Karianne",
+  "email": "Julianne.OConner@kory.org",
+  "address": {
+    "street": "Hoeger Mall",
+    "suite": "Apt. 692",
+    "city": "South Elvis",
+    "zipcode": "53919-4257",
+    "geo": { "lat": "29.4572", "lng": "-164.2990" }
+  },
+  "phone": "493-170-9623 x156",
+  "website": "kale.biz",
+  "company": {
+    "name": "Robel-Corkery",
+    "catchPhrase": "Multi-tiered zero tolerance productivity",
+    "bs": "transition cutting-edge web services"
+  }
+}
 
 #### posts
 GET http://jsonplaceholder.typicode.com/posts?_end=35&_order=ASC&_sort=id&_start=0
