@@ -1,4 +1,5 @@
 import express from "express"
+import { getPosts } from "./posts"
 import { getUsers } from "./users"
 
 const app: express.Express = express()
@@ -24,3 +25,4 @@ app.listen(9999, () => {
 })
 
 app.get("/users", getUsers)
+app.get("/posts", getPosts)
