@@ -7,6 +7,13 @@
     "npm": "7.x"
   },
   "scripts": {
+    "build": "tsc src/index.ts",
+    "start": "ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "16.10.3",
+    "ts-node": "10.2.1",
+    "typescript": "4.4.3"
   }
 }
