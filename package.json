@@ -2,6 +2,10 @@
   "name": "try-react-admin-server",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "16.x",
+    "npm": "7.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
