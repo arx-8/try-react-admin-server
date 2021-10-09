@@ -239,3 +239,15 @@ export const getUsers = (_req: Request, res: Response) => {
   res.setHeader("x-total-count", data.length)
   res.send(JSON.stringify(data))
 }
+
+export const getUserByID = (req: Request<{ id: string }>, res: Response) => {
+  res.type("application/json")
+
+  const found = data.find((d) => d.id === Number(req.params.id))
+  if (found == null) {
+    res.statusCode = 404
+    res.send(JSON.stringify({ message: "Data not found" }))
+    return
+  }
+  res.send(JSON.stringify(found))
+}

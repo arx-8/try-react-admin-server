@@ -1,6 +1,6 @@
 import express from "express"
 import { getPosts } from "./posts"
-import { getUsers } from "./users"
+import { getUserByID, getUsers } from "./users"
 
 const app: express.Express = express()
 app.use(express.json())
@@ -34,4 +34,5 @@ app.listen(9999, () => {
 })
 
 app.get("/users", getUsers)
+app.get("/users/:id", getUserByID)
 app.get("/posts", getPosts)

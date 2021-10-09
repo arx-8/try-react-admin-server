@@ -1,8 +1,12 @@
-###
+### users
 
 GET http://localhost:9999/users
 
-###
+### user by id
+
+GET http://localhost:9999/users/3
+
+### posts
 
 GET http://localhost:9999/posts
 
