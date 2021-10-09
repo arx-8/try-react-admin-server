@@ -236,5 +236,6 @@ const data: User[] = [
 
 export const getUsers = (_req: Request, res: Response) => {
   res.type("application/json")
+  res.setHeader("x-total-count", data.length)
   res.send(JSON.stringify(data))
 }

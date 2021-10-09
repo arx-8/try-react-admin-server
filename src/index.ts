@@ -13,9 +13,18 @@ app.use(
     res: express.Response,
     next: express.NextFunction
   ) => {
-    res.header("Access-Control-Allow-Origin", "*")
-    res.header("Access-Control-Allow-Methods", "*")
-    res.header("Access-Control-Allow-Headers", "*")
+    res.header("access-control-allow-origin", "*")
+    res.header("access-control-allow-methods", [
+      "DELETE",
+      "GET",
+      "OPTIONS",
+      "POST",
+      "PUT",
+    ])
+
+    const arrowedHeaders = ["authorization", "x-total-count"]
+    res.header("access-control-allow-headers", arrowedHeaders)
+    res.header("access-control-expose-headers", arrowedHeaders)
     next()
   }
 )

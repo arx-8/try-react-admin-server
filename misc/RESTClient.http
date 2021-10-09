@@ -5,3 +5,12 @@ GET http://localhost:9999/users
 ###
 
 GET http://localhost:9999/posts
+
+
+### original
+
+#### users
+GET http://jsonplaceholder.typicode.com/users?_end=25&_order=ASC&_sort=id&_start=0
+
+#### posts
+GET http://jsonplaceholder.typicode.com/posts?_end=35&_order=ASC&_sort=id&_start=0
