@@ -6,6 +6,10 @@ GET http://localhost:9999/users
 
 GET http://localhost:9999/users/3
 
+### delete user by id
+
+DELETE http://localhost:9999/users/9
+
 ### update user by id
 
 PUT http://localhost:9999/users/3

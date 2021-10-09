@@ -235,6 +235,10 @@ const data: User[] = [
   },
 ]
 
+type ErrorResponseBody = {
+  message: string
+}
+
 export const getUsers = (_req: Request<never>, res: Response<User[]>) => {
   res.type("application/json")
   res.setHeader("x-total-count", data.length)
@@ -255,7 +259,7 @@ export const getUserByID = (req: Request<{ id: string }>, res: Response) => {
 
 export const putUserByID = (
   req: Request<{ id: string }, unknown, User>,
-  res: Response<{ id: number } | { message: string }>
+  res: Response<{ id: number } | ErrorResponseBody>
 ) => {
   res.type("application/json")
 
@@ -279,6 +283,25 @@ export const putUserByID = (
     // @ts-expect-error 問題ない get value by key
     found[key] = req.body[key]
   })
+
+  res.send({ id: found.id })
+}
+
+export const deleteUserByID = (
+  req: Request<{ id: string }, unknown>,
+  res: Response<{ id: number } | ErrorResponseBody>
+) => {
+  res.type("application/json")
+
+  const foundIndex = data.findIndex((d) => d.id === Number(req.params.id))
+  const found = data[foundIndex]
+  if (foundIndex == null || found == null) {
+    res.statusCode = 404
+    res.send({ message: "Data not found" })
+    return
+  }
+
+  data.splice(foundIndex, 1)
 
   res.send({ id: found.id })
 }
