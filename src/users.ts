@@ -235,10 +235,10 @@ const data: User[] = [
   },
 ]
 
-export const getUsers = (_req: Request, res: Response) => {
+export const getUsers = (_req: Request<never>, res: Response<User[]>) => {
   res.type("application/json")
   res.setHeader("x-total-count", data.length)
-  res.send(JSON.stringify(data))
+  res.send(data)
 }
 
 export const getUserByID = (req: Request<{ id: string }>, res: Response) => {
@@ -247,34 +247,31 @@ export const getUserByID = (req: Request<{ id: string }>, res: Response) => {
   const found = data.find((d) => d.id === Number(req.params.id))
   if (found == null) {
     res.statusCode = 404
-    res.send(JSON.stringify({ message: "Data not found" }))
+    res.send({ message: "Data not found" })
     return
   }
-  res.send(JSON.stringify(found))
+  res.send(found)
 }
 
 export const putUserByID = (
   req: Request<{ id: string }, unknown, User>,
-  res: Response
+  res: Response<{ id: number } | { message: string }>
 ) => {
   res.type("application/json")
 
   const found = data.find((d) => d.id === Number(req.params.id))
   if (found == null) {
     res.statusCode = 404
-    res.send(JSON.stringify({ message: "Data not found" }))
+    res.send({ message: "Data not found" })
     return
   }
 
   // エラー発生時の挙動確認のため
   if (req.body.name === "error") {
     res.statusCode = 400
-    res.send(
-      JSON.stringify({
-        code: "E400",
-        message: "Bad request",
-      })
-    )
+    res.send({
+      message: "Bad request",
+    })
     return
   }
 
@@ -283,5 +280,5 @@ export const putUserByID = (
     found[key] = req.body[key]
   })
 
-  res.send(JSON.stringify({ id: found.id }))
+  res.send({ id: found.id })
 }

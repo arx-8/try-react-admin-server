@@ -216,8 +216,8 @@ const data: Post[] = [
   },
 ]
 
-export const getPosts = (_req: Request, res: Response) => {
+export const getPosts = (_req: Request<never>, res: Response<Post[]>) => {
   res.type("application/json")
   res.setHeader("x-total-count", data.length)
-  res.send(JSON.stringify(data))
+  res.send(data)
 }
