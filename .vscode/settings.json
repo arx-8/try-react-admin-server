@@ -1,0 +1,35 @@
+{
+  "editor.formatOnSave": true,
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+
+  // Project specific
+  "files.associations": {
+    ".env.*": "dotenv"
+  },
+  "search.exclude": {
+    "**/build": true
+  },
+  "typescript.tsdk": "./node_modules/typescript/lib",
+
+  /**
+   * Extensions
+   */
+  /** dbaeumer.vscode-eslint */
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  /** esbenp.prettier-vscode */
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.prettierPath": "./node_modules/prettier",
+  /** streetsidesoftware.code-spell-checker */
+  "cSpell.ignoreRegExpList": ["[０-９Ａ-Ｚａ-ｚぁ-んァ-ヶ亜-熙纊-黑]+"],
+  "cSpell.words": ["destructure", "immer"]
+}
