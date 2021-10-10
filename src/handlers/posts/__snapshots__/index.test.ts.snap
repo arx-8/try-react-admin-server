@@ -242,6 +242,73 @@ quaerat voluptatem adipisci repudiandae",
 ]
 `;
 
+exports[`/posts Get list with filters by id 1`] = `
+Object {
+  "access-control-allow-headers": "authorization, x-total-count, content-type",
+  "access-control-allow-methods": "DELETE, GET, OPTIONS, POST, PUT",
+  "access-control-allow-origin": "*",
+  "access-control-expose-headers": "authorization, x-total-count, content-type",
+  "connection": "close",
+  "content-length": "231",
+  "content-type": "application/json; charset=utf-8",
+  "etag": "W/\\"e7-4VCkDZnvo1nAF0cE4o+bXx0qvGI\\"",
+  "x-powered-by": "Express",
+  "x-total-count": "35",
+}
+`;
+
+exports[`/posts Get list with filters by id 2`] = `
+Array [
+  Object {
+    "body": "consectetur animi nesciunt iure dolore
+enim quia ad
+veniam autem ut quam aut nobis
+et est aut quod aut provident voluptas autem voluptas",
+    "id": 9,
+    "title": "nesciunt iure omnis dolorem tempora et accusantium",
+    "userId": 1,
+  },
+]
+`;
+
+exports[`/posts Get list with filters by ids 1`] = `
+Object {
+  "access-control-allow-headers": "authorization, x-total-count, content-type",
+  "access-control-allow-methods": "DELETE, GET, OPTIONS, POST, PUT",
+  "access-control-allow-origin": "*",
+  "access-control-expose-headers": "authorization, x-total-count, content-type",
+  "connection": "close",
+  "content-length": "507",
+  "content-type": "application/json; charset=utf-8",
+  "etag": "W/\\"1fb-pv6M8DIoMLXVMdB07IfEqmo86hY\\"",
+  "x-powered-by": "Express",
+  "x-total-count": "35",
+}
+`;
+
+exports[`/posts Get list with filters by ids 2`] = `
+Array [
+  Object {
+    "body": "quia et suscipit
+suscipit recusandae consequuntur expedita et cum
+reprehenderit molestiae ut ut quas totam
+nostrum rerum est autem sunt rem eveniet architecto",
+    "id": 1,
+    "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+    "userId": 1,
+  },
+  Object {
+    "body": "consectetur animi nesciunt iure dolore
+enim quia ad
+veniam autem ut quam aut nobis
+et est aut quod aut provident voluptas autem voluptas",
+    "id": 9,
+    "title": "nesciunt iure omnis dolorem tempora et accusantium",
+    "userId": 1,
+  },
+]
+`;
+
 exports[`/posts Update 1`] = `
 Object {
   "access-control-allow-headers": "authorization, x-total-count, content-type",

@@ -18,5 +18,16 @@ export type GetListRequestParams<T extends Record<string, any>> = Readonly<
     _order: OrderType
     _sort: keyof T
     _start: NumberLike
+    /**
+     * ## e.g.
+     * - ['1', '9']
+     * - '9'
+     */
+    id: NumberLike | NumberLike[]
   }>
 >
+
+/**
+ * for lodash flow (left to right)
+ */
+export type FlowAbleFunction = <T>(collection2: T[]) => T[]

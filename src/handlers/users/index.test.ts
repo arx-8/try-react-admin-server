@@ -44,6 +44,32 @@ describe("/users", () => {
     })
   })
 
+  it("Get list with filters by id", async () => {
+    // ## Arrange ##
+    // ## Act ##
+    const requested = agent.get("/users?id=9")
+
+    // ## Assert ##
+    await requested.then((resp) => {
+      expect(resp.statusCode).toStrictEqual(200)
+      expect(excludeUntestableHeaders(resp.headers)).toMatchSnapshot()
+      expect(resp.body).toMatchSnapshot()
+    })
+  })
+
+  it("Get list with filters by ids", async () => {
+    // ## Arrange ##
+    // ## Act ##
+    const requested = agent.get("/users?id=1&id=9")
+
+    // ## Assert ##
+    await requested.then((resp) => {
+      expect(resp.statusCode).toStrictEqual(200)
+      expect(excludeUntestableHeaders(resp.headers)).toMatchSnapshot()
+      expect(resp.body).toMatchSnapshot()
+    })
+  })
+
   it("Get details", async () => {
     // ## Arrange ##
     // ## Act ##

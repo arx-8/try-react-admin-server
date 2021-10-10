@@ -11,6 +11,11 @@ GET http://localhost:9999/users
 
 GET http://localhost:9999/users?_start=1&_end=3&_order=ASC&_sort=name
 
+#### by id
+
+# GET http://localhost:9999/users?id=1&id=9
+GET http://localhost:9999/users?id=9
+
 ### get detail by id
 
 GET http://localhost:9999/users/3

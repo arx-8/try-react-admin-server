@@ -340,3 +340,112 @@ Array [
   },
 ]
 `;
+
+exports[`/users Get list with filters by id 1`] = `
+Object {
+  "access-control-allow-headers": "authorization, x-total-count, content-type",
+  "access-control-allow-methods": "DELETE, GET, OPTIONS, POST, PUT",
+  "access-control-allow-origin": "*",
+  "access-control-expose-headers": "authorization, x-total-count, content-type",
+  "connection": "close",
+  "content-length": "417",
+  "content-type": "application/json; charset=utf-8",
+  "etag": "W/\\"1a1-3o8aqZY6SI1PJ9GY/2QMBhJFzcI\\"",
+  "x-powered-by": "Express",
+  "x-total-count": "10",
+}
+`;
+
+exports[`/users Get list with filters by id 2`] = `
+Array [
+  Object {
+    "address": Object {
+      "city": "Bartholomebury",
+      "geo": Object {
+        "lat": "24.6463",
+        "lng": "-168.8889",
+      },
+      "street": "Dayna Park",
+      "suite": "Suite 449",
+      "zipcode": "76495-3109",
+    },
+    "company": Object {
+      "bs": "aggregate real-time technologies",
+      "catchPhrase": "Switchable contextually-based project",
+      "name": "Yost and Sons",
+    },
+    "email": "Chaim_McDermott@dana.io",
+    "id": 9,
+    "name": "Glenna Reichert",
+    "phone": "(775)976-6794 x41206",
+    "username": "Delphine",
+    "website": "conrad.com",
+  },
+]
+`;
+
+exports[`/users Get list with filters by ids 1`] = `
+Object {
+  "access-control-allow-headers": "authorization, x-total-count, content-type",
+  "access-control-allow-methods": "DELETE, GET, OPTIONS, POST, PUT",
+  "access-control-allow-origin": "*",
+  "access-control-expose-headers": "authorization, x-total-count, content-type",
+  "connection": "close",
+  "content-length": "819",
+  "content-type": "application/json; charset=utf-8",
+  "etag": "W/\\"333-mQZ/iQwGZbKSQPOn+s4QrqOFTNU\\"",
+  "x-powered-by": "Express",
+  "x-total-count": "10",
+}
+`;
+
+exports[`/users Get list with filters by ids 2`] = `
+Array [
+  Object {
+    "address": Object {
+      "city": "Gwenborough",
+      "geo": Object {
+        "lat": "-37.3159",
+        "lng": "81.1496",
+      },
+      "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "zipcode": "92998-3874",
+    },
+    "company": Object {
+      "bs": "harness real-time e-markets",
+      "catchPhrase": "Multi-layered client-server neural-net",
+      "name": "Romaguera-Crona",
+    },
+    "email": "Sincere@april.biz",
+    "id": 1,
+    "name": "Leanne Graham",
+    "phone": "1-770-736-8031 x56442",
+    "username": "Bret",
+    "website": "hildegard.org",
+  },
+  Object {
+    "address": Object {
+      "city": "Bartholomebury",
+      "geo": Object {
+        "lat": "24.6463",
+        "lng": "-168.8889",
+      },
+      "street": "Dayna Park",
+      "suite": "Suite 449",
+      "zipcode": "76495-3109",
+    },
+    "company": Object {
+      "bs": "aggregate real-time technologies",
+      "catchPhrase": "Switchable contextually-based project",
+      "name": "Yost and Sons",
+    },
+    "email": "Chaim_McDermott@dana.io",
+    "id": 9,
+    "name": "Glenna Reichert",
+    "phone": "(775)976-6794 x41206",
+    "username": "Delphine",
+    "website": "conrad.com",
+  },
+]
+`;

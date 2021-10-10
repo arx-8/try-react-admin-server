@@ -1,8 +1,9 @@
 import type { Request, Response } from "express"
-import { flow, orderBy, slice } from "lodash/fp"
+import { filter, flow, orderBy, slice } from "lodash/fp"
 import { User } from "../../domain/User"
 import {
   ErrorResponseBody,
+  FlowAbleFunction,
   GetListRequestParams,
   orderTypes,
 } from "../../utils/type"
@@ -277,9 +278,23 @@ export const getUsers = (
   }
 
   // sql 同様、filter, sort, pagination の順で実行する
+  const flowFuncs: FlowAbleFunction[] = []
+
+  // filter
+  if (req.query.id != null) {
+    const predicate = (datum: User): boolean => {
+      if (Array.isArray(req.query.id)) {
+        return req.query.id.map(Number).includes(datum.id)
+      } else {
+        return Number(req.query.id) === datum.id
+      }
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    flowFuncs.push(filter(predicate as any))
+  }
 
   // sort
-  const flowFuncs: (<T>(collection: T[]) => T[])[] = []
   if (req.query._sort != null && req.query._order != null) {
     flowFuncs.push(orderBy([req.query._sort], [toLowerCase(req.query._order)]))
   }
