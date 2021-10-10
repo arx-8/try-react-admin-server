@@ -24,7 +24,7 @@ describe("/posts", () => {
           "content-type": "application/json; charset=utf-8",
           "etag": "W/\\"979-lrX42kIYjA4vz22AWe2Rm5UiKus\\"",
           "x-powered-by": "Express",
-          "x-total-count": "10",
+          "x-total-count": "35",
         }
       `)
       expect(resp.body).toMatchSnapshot()

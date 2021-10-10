@@ -289,7 +289,7 @@ export const getUsers = (
 
   const result = flow(flowFuncs)(data)
 
-  res.setHeader("x-total-count", result.length)
+  res.setHeader("x-total-count", data.length)
   res.send(result)
 }
 
