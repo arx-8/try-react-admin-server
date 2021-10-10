@@ -1,6 +1,11 @@
 import type { Request, Response } from "express"
+import { flow, orderBy, slice } from "lodash/fp"
 import type { User } from "./domain/User"
-import { objectKeys } from "./utils"
+import { NumberLike, OrderType, orderTypes } from "./type"
+import { objectKeys, toLowerCase } from "./utils"
+
+type UserForPartialResponse = Pick<User, "id">
+type UserForNewCreate = Omit<User, "id">
 
 const data: User[] = [
   {
@@ -239,10 +244,63 @@ type ErrorResponseBody = {
   message: string
 }
 
-export const getUsers = (_req: Request<never>, res: Response<User[]>) => {
+export const getUsers = (
+  req: Request<
+    never,
+    never,
+    never,
+    Partial<{
+      _end: NumberLike
+      _order: OrderType
+      _sort: keyof User
+      _start: NumberLike
+    }>
+  >,
+  res: Response<User[] | ErrorResponseBody>
+) => {
   res.type("application/json")
-  res.setHeader("x-total-count", data.length)
-  res.send(data)
+
+  // validation
+  const maybeStart = req.query._start ? Number(req.query._start) : undefined
+  if (maybeStart != null && isNaN(maybeStart)) {
+    res.statusCode = 400
+    res.send({ message: `_start is invalid: ${req.query._start}` })
+    return
+  }
+  const maybeEnd = req.query._end ? Number(req.query._end) : undefined
+  if (maybeEnd != null && isNaN(maybeEnd)) {
+    res.statusCode = 400
+    res.send({ message: `_end is invalid: ${req.query._end}` })
+    return
+  }
+  if (maybeStart != null && maybeEnd != null && maybeEnd < maybeStart) {
+    res.statusCode = 400
+    res.send({
+      message: `Must be "_start < _end": _start:${maybeStart}, _end:${maybeEnd}`,
+    })
+    return
+  }
+  if (req.query._order != null && !orderTypes.includes(req.query._order)) {
+    res.statusCode = 400
+    res.send({ message: `_order is invalid: ${req.query._order}` })
+    return
+  }
+
+  // sql 同様、filter, sort, pagination の順で実行する
+
+  // sort
+  const flowFuncs: (<T>(collection: T[]) => T[])[] = []
+  if (req.query._sort != null && req.query._order != null) {
+    flowFuncs.push(orderBy([req.query._sort], [toLowerCase(req.query._order)]))
+  }
+
+  // pagination
+  flowFuncs.push(slice(maybeStart ?? 0, maybeEnd ?? 10))
+
+  const result = flow(flowFuncs)(data)
+
+  res.setHeader("x-total-count", result.length)
+  res.send(result)
 }
 
 export const getUserByID = (req: Request<{ id: string }>, res: Response) => {
@@ -259,7 +317,7 @@ export const getUserByID = (req: Request<{ id: string }>, res: Response) => {
 
 export const putUserByID = (
   req: Request<{ id: string }, unknown, User>,
-  res: Response<{ id: number } | ErrorResponseBody>
+  res: Response<UserForPartialResponse | ErrorResponseBody>
 ) => {
   res.type("application/json")
 
@@ -289,7 +347,7 @@ export const putUserByID = (
 
 export const deleteUserByID = (
   req: Request<{ id: string }, unknown>,
-  res: Response<{ id: number } | ErrorResponseBody>
+  res: Response<UserForPartialResponse | ErrorResponseBody>
 ) => {
   res.type("application/json")
 
@@ -304,4 +362,19 @@ export const deleteUserByID = (
   data.splice(foundIndex, 1)
 
   res.send({ id: found.id })
+}
+
+export const createUser = (
+  req: Request<never, UserForPartialResponse, UserForNewCreate>,
+  res: Response<UserForPartialResponse | ErrorResponseBody>
+) => {
+  res.type("application/json")
+
+  const nextID = (data[data.length - 1]?.id ?? 0) + 1
+  data.push({
+    ...req.body,
+    id: nextID,
+  })
+
+  res.send({ id: nextID })
 }

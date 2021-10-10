@@ -2,6 +2,10 @@
 
 GET http://localhost:9999/users
 
+#### with query params
+
+GET http://localhost:9999/users?_start=1&_end=3&_order=ASC&_sort=name
+
 ### user by id
 
 GET http://localhost:9999/users/3
