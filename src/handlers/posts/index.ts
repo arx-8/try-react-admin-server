@@ -3,8 +3,7 @@ import { flow, orderBy, slice } from "lodash/fp"
 import { Post } from "../../domain/Post"
 import {
   ErrorResponseBody,
-  NumberLike,
-  OrderType,
+  GetListRequestParams,
   orderTypes,
 } from "../../utils/type"
 import { objectKeys, toLowerCase } from "../../utils/utils"
@@ -228,17 +227,7 @@ const data: Post[] = [
 ]
 
 export const getPosts = (
-  req: Request<
-    never,
-    never,
-    never,
-    Partial<{
-      _end: NumberLike
-      _order: OrderType
-      _sort: keyof Post
-      _start: NumberLike
-    }>
-  >,
+  req: Request<never, never, never, GetListRequestParams<Post>>,
   res: Response<Post[] | ErrorResponseBody>
 ): void => {
   res.type("application/json")

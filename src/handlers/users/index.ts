@@ -3,8 +3,7 @@ import { flow, orderBy, slice } from "lodash/fp"
 import { User } from "../../domain/User"
 import {
   ErrorResponseBody,
-  NumberLike,
-  OrderType,
+  GetListRequestParams,
   orderTypes,
 } from "../../utils/type"
 import { objectKeys, toLowerCase } from "../../utils/utils"
@@ -246,17 +245,7 @@ const data: User[] = [
 ]
 
 export const getUsers = (
-  req: Request<
-    never,
-    never,
-    never,
-    Partial<{
-      _end: NumberLike
-      _order: OrderType
-      _sort: keyof User
-      _start: NumberLike
-    }>
-  >,
+  req: Request<never, never, never, GetListRequestParams<User>>,
   res: Response<User[] | ErrorResponseBody>
 ): void => {
   res.type("application/json")
