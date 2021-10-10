@@ -54,7 +54,7 @@ GET http://localhost:9999/posts
 
 #### with query params
 
-GET http://localhost:9999/posts?_start=1&_end=3&_order=ASC&_sort=title
+GET http://localhost:9999/posts?_start=1&_end=3&_order=DESC&_sort=title
 
 ### get detail by id
 

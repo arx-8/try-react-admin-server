@@ -14,7 +14,7 @@ import {
   putUserByID,
 } from "./handlers/users"
 
-const app: express.Express = express()
+export const app = express()
 app.use(express.json())
 
 // for CORS
@@ -40,10 +40,6 @@ app.use(
   }
 )
 
-app.listen(9999, () => {
-  console.log("Start on http://localhost:9999/")
-})
-
 // users
 app.get("/users", getUsers)
 app.post("/users", createUser)
@@ -57,3 +53,10 @@ app.post("/posts", createPost)
 app.get("/posts/:id", getPostByID)
 app.put("/posts/:id", putPostByID)
 app.delete("/posts/:id", deletePostByID)
+
+// UT 環境下で Server instance が起動しないようにするため
+if (process.env.NODE_ENV !== "test") {
+  app.listen(9999, () => {
+    console.log("Start on http://localhost:9999/")
+  })
+}
