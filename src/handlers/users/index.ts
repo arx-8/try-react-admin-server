@@ -1,8 +1,13 @@
 import type { Request, Response } from "express"
 import { flow, orderBy, slice } from "lodash/fp"
-import type { User } from "./domain/User"
-import { ErrorResponseBody, NumberLike, OrderType, orderTypes } from "./type"
-import { objectKeys, toLowerCase } from "./utils"
+import { User } from "../../domain/User"
+import {
+  ErrorResponseBody,
+  NumberLike,
+  OrderType,
+  orderTypes,
+} from "../../utils/type"
+import { objectKeys, toLowerCase } from "../../utils/utils"
 
 type UserForPartialResponse = Pick<User, "id">
 type UserForNewCreate = Omit<User, "id">

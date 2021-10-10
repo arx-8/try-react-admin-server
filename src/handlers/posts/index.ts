@@ -1,8 +1,13 @@
 import type { Request, Response } from "express"
 import { flow, orderBy, slice } from "lodash/fp"
-import type { Post } from "./domain/Post"
-import { ErrorResponseBody, NumberLike, OrderType, orderTypes } from "./type"
-import { objectKeys, toLowerCase } from "./utils"
+import { Post } from "../../domain/Post"
+import {
+  ErrorResponseBody,
+  NumberLike,
+  OrderType,
+  orderTypes,
+} from "../../utils/type"
+import { objectKeys, toLowerCase } from "../../utils/utils"
 
 type PostForPartialResponse = Pick<Post, "id">
 type PostForNewCreate = Omit<Post, "id">

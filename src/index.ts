@@ -5,14 +5,14 @@ import {
   getPostByID,
   getPosts,
   putPostByID,
-} from "./posts"
+} from "./handlers/posts"
 import {
   createUser,
   deleteUserByID,
   getUserByID,
   getUsers,
   putUserByID,
-} from "./users"
+} from "./handlers/users"
 
 const app: express.Express = express()
 app.use(express.json())
