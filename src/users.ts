@@ -9,234 +9,234 @@ type UserForNewCreate = Omit<User, "id">
 
 const data: User[] = [
   {
-    id: 1,
-    name: "Leanne Graham",
-    username: "Bret",
-    email: "Sincere@april.biz",
     address: {
-      street: "Kulas Light",
-      suite: "Apt. 556",
       city: "Gwenborough",
-      zipcode: "92998-3874",
       geo: {
         lat: "-37.3159",
         lng: "81.1496",
       },
+      street: "Kulas Light",
+      suite: "Apt. 556",
+      zipcode: "92998-3874",
     },
-    phone: "1-770-736-8031 x56442",
-    website: "hildegard.org",
     company: {
-      name: "Romaguera-Crona",
-      catchPhrase: "Multi-layered client-server neural-net",
       bs: "harness real-time e-markets",
+      catchPhrase: "Multi-layered client-server neural-net",
+      name: "Romaguera-Crona",
     },
+    email: "Sincere@april.biz",
+    id: 1,
+    name: "Leanne Graham",
+    phone: "1-770-736-8031 x56442",
+    username: "Bret",
+    website: "hildegard.org",
   },
   {
-    id: 2,
-    name: "Ervin Howell",
-    username: "Antonette",
-    email: "Shanna@melissa.tv",
     address: {
-      street: "Victor Plains",
-      suite: "Suite 879",
       city: "Wisokyburgh",
-      zipcode: "90566-7771",
       geo: {
         lat: "-43.9509",
         lng: "-34.4618",
       },
+      street: "Victor Plains",
+      suite: "Suite 879",
+      zipcode: "90566-7771",
     },
-    phone: "010-692-6593 x09125",
-    website: "anastasia.net",
     company: {
-      name: "Deckow-Crist",
-      catchPhrase: "Proactive didactic contingency",
       bs: "synergize scalable supply-chains",
+      catchPhrase: "Proactive didactic contingency",
+      name: "Deckow-Crist",
     },
+    email: "Shanna@melissa.tv",
+    id: 2,
+    name: "Ervin Howell",
+    phone: "010-692-6593 x09125",
+    username: "Antonette",
+    website: "anastasia.net",
   },
   {
-    id: 3,
-    name: "Clementine Bauch",
-    username: "Samantha",
-    email: "Nathan@yesenia.net",
     address: {
-      street: "Douglas Extension",
-      suite: "Suite 847",
       city: "McKenziehaven",
-      zipcode: "59590-4157",
       geo: {
         lat: "-68.6102",
         lng: "-47.0653",
       },
+      street: "Douglas Extension",
+      suite: "Suite 847",
+      zipcode: "59590-4157",
     },
-    phone: "1-463-123-4447",
-    website: "ramiro.info",
     company: {
-      name: "Romaguera-Jacobson",
-      catchPhrase: "Face to face bifurcated interface",
       bs: "e-enable strategic applications",
+      catchPhrase: "Face to face bifurcated interface",
+      name: "Romaguera-Jacobson",
     },
+    email: "Nathan@yesenia.net",
+    id: 3,
+    name: "Clementine Bauch",
+    phone: "1-463-123-4447",
+    username: "Samantha",
+    website: "ramiro.info",
   },
   {
-    id: 4,
-    name: "Patricia Lebsack",
-    username: "Karianne",
-    email: "Julianne.OConner@kory.org",
     address: {
-      street: "Hoeger Mall",
-      suite: "Apt. 692",
       city: "South Elvis",
-      zipcode: "53919-4257",
       geo: {
         lat: "29.4572",
         lng: "-164.2990",
       },
+      street: "Hoeger Mall",
+      suite: "Apt. 692",
+      zipcode: "53919-4257",
     },
-    phone: "493-170-9623 x156",
-    website: "kale.biz",
     company: {
-      name: "Robel-Corkery",
-      catchPhrase: "Multi-tiered zero tolerance productivity",
       bs: "transition cutting-edge web services",
+      catchPhrase: "Multi-tiered zero tolerance productivity",
+      name: "Robel-Corkery",
     },
+    email: "Julianne.OConner@kory.org",
+    id: 4,
+    name: "Patricia Lebsack",
+    phone: "493-170-9623 x156",
+    username: "Karianne",
+    website: "kale.biz",
   },
   {
-    id: 5,
-    name: "Chelsey Dietrich",
-    username: "Kamren",
-    email: "Lucio_Hettinger@annie.ca",
     address: {
-      street: "Skiles Walks",
-      suite: "Suite 351",
       city: "Roscoeview",
-      zipcode: "33263",
       geo: {
         lat: "-31.8129",
         lng: "62.5342",
       },
+      street: "Skiles Walks",
+      suite: "Suite 351",
+      zipcode: "33263",
     },
-    phone: "(254)954-1289",
-    website: "demarco.info",
     company: {
-      name: "Keebler LLC",
-      catchPhrase: "User-centric fault-tolerant solution",
       bs: "revolutionize end-to-end systems",
+      catchPhrase: "User-centric fault-tolerant solution",
+      name: "Keebler LLC",
     },
+    email: "Lucio_Hettinger@annie.ca",
+    id: 5,
+    name: "Chelsey Dietrich",
+    phone: "(254)954-1289",
+    username: "Kamren",
+    website: "demarco.info",
   },
   {
-    id: 6,
-    name: "Mrs. Dennis Schulist",
-    username: "Leopoldo_Corkery",
-    email: "Karley_Dach@jasper.info",
     address: {
-      street: "Norberto Crossing",
-      suite: "Apt. 950",
       city: "South Christy",
-      zipcode: "23505-1337",
       geo: {
         lat: "-71.4197",
         lng: "71.7478",
       },
+      street: "Norberto Crossing",
+      suite: "Apt. 950",
+      zipcode: "23505-1337",
     },
-    phone: "1-477-935-8478 x6430",
-    website: "ola.org",
     company: {
-      name: "Considine-Lockman",
-      catchPhrase: "Synchronised bottom-line interface",
       bs: "e-enable innovative applications",
+      catchPhrase: "Synchronised bottom-line interface",
+      name: "Considine-Lockman",
     },
+    email: "Karley_Dach@jasper.info",
+    id: 6,
+    name: "Mrs. Dennis Schulist",
+    phone: "1-477-935-8478 x6430",
+    username: "Leopoldo_Corkery",
+    website: "ola.org",
   },
   {
-    id: 7,
-    name: "Kurtis Weissnat",
-    username: "Elwyn.Skiles",
-    email: "Telly.Hoeger@billy.biz",
     address: {
-      street: "Rex Trail",
-      suite: "Suite 280",
       city: "Howemouth",
-      zipcode: "58804-1099",
       geo: {
         lat: "24.8918",
         lng: "21.8984",
       },
+      street: "Rex Trail",
+      suite: "Suite 280",
+      zipcode: "58804-1099",
     },
-    phone: "210.067.6132",
-    website: "elvis.io",
     company: {
-      name: "Johns Group",
-      catchPhrase: "Configurable multimedia task-force",
       bs: "generate enterprise e-tailers",
+      catchPhrase: "Configurable multimedia task-force",
+      name: "Johns Group",
     },
+    email: "Telly.Hoeger@billy.biz",
+    id: 7,
+    name: "Kurtis Weissnat",
+    phone: "210.067.6132",
+    username: "Elwyn.Skiles",
+    website: "elvis.io",
   },
   {
-    id: 8,
-    name: "Nicholas Runolfsdottir V",
-    username: "Maxime_Nienow",
-    email: "Sherwood@rosamond.me",
     address: {
-      street: "Ellsworth Summit",
-      suite: "Suite 729",
       city: "Aliyaview",
-      zipcode: "45169",
       geo: {
         lat: "-14.3990",
         lng: "-120.7677",
       },
+      street: "Ellsworth Summit",
+      suite: "Suite 729",
+      zipcode: "45169",
     },
-    phone: "586.493.6943 x140",
-    website: "jacynthe.com",
     company: {
-      name: "Abernathy Group",
-      catchPhrase: "Implemented secondary concept",
       bs: "e-enable extensible e-tailers",
+      catchPhrase: "Implemented secondary concept",
+      name: "Abernathy Group",
     },
+    email: "Sherwood@rosamond.me",
+    id: 8,
+    name: "Nicholas Runolfsdottir V",
+    phone: "586.493.6943 x140",
+    username: "Maxime_Nienow",
+    website: "jacynthe.com",
   },
   {
-    id: 9,
-    name: "Glenna Reichert",
-    username: "Delphine",
-    email: "Chaim_McDermott@dana.io",
     address: {
-      street: "Dayna Park",
-      suite: "Suite 449",
       city: "Bartholomebury",
-      zipcode: "76495-3109",
       geo: {
         lat: "24.6463",
         lng: "-168.8889",
       },
+      street: "Dayna Park",
+      suite: "Suite 449",
+      zipcode: "76495-3109",
     },
-    phone: "(775)976-6794 x41206",
-    website: "conrad.com",
     company: {
-      name: "Yost and Sons",
-      catchPhrase: "Switchable contextually-based project",
       bs: "aggregate real-time technologies",
+      catchPhrase: "Switchable contextually-based project",
+      name: "Yost and Sons",
     },
+    email: "Chaim_McDermott@dana.io",
+    id: 9,
+    name: "Glenna Reichert",
+    phone: "(775)976-6794 x41206",
+    username: "Delphine",
+    website: "conrad.com",
   },
   {
-    id: 10,
-    name: "Clementina DuBuque",
-    username: "Moriah.Stanton",
-    email: "Rey.Padberg@karina.biz",
     address: {
-      street: "Kattie Turnpike",
-      suite: "Suite 198",
       city: "Lebsackbury",
-      zipcode: "31428-2261",
       geo: {
         lat: "-38.2386",
         lng: "57.2232",
       },
+      street: "Kattie Turnpike",
+      suite: "Suite 198",
+      zipcode: "31428-2261",
     },
-    phone: "024-648-3804",
-    website: "ambrose.net",
     company: {
-      name: "Hoeger LLC",
-      catchPhrase: "Centralized empowering task-force",
       bs: "target end-to-end models",
+      catchPhrase: "Centralized empowering task-force",
+      name: "Hoeger LLC",
     },
+    email: "Rey.Padberg@karina.biz",
+    id: 10,
+    name: "Clementina DuBuque",
+    phone: "024-648-3804",
+    username: "Moriah.Stanton",
+    website: "ambrose.net",
   },
 ]
 
@@ -253,7 +253,7 @@ export const getUsers = (
     }>
   >,
   res: Response<User[] | ErrorResponseBody>
-) => {
+): void => {
   res.type("application/json")
 
   // validation
@@ -302,7 +302,7 @@ export const getUsers = (
 export const getUserByID = (
   req: Request<{ id: string }>,
   res: Response<User | ErrorResponseBody>
-) => {
+): void => {
   res.type("application/json")
 
   const found = data.find((d) => d.id === Number(req.params.id))
@@ -317,7 +317,7 @@ export const getUserByID = (
 export const putUserByID = (
   req: Request<{ id: string }, unknown, User>,
   res: Response<UserForPartialResponse | ErrorResponseBody>
-) => {
+): void => {
   res.type("application/json")
 
   const found = data.find((d) => d.id === Number(req.params.id))
@@ -347,7 +347,7 @@ export const putUserByID = (
 export const deleteUserByID = (
   req: Request<{ id: string }, unknown>,
   res: Response<UserForPartialResponse | ErrorResponseBody>
-) => {
+): void => {
   res.type("application/json")
 
   const foundIndex = data.findIndex((d) => d.id === Number(req.params.id))
@@ -366,7 +366,7 @@ export const deleteUserByID = (
 export const createUser = (
   req: Request<never, UserForPartialResponse, UserForNewCreate>,
   res: Response<UserForPartialResponse | ErrorResponseBody>
-) => {
+): void => {
   res.type("application/json")
 
   const nextID = (data[data.length - 1]?.id ?? 0) + 1

@@ -1,29 +1,29 @@
-export type User = {
-  id: number
-  name: string
-  username: string
-  email: string
-  address: Address
-  phone: string
-  website: string
-  company: Company
-}
-
 type Company = {
-  name: string
-  catchPhrase: string
   bs: string
-}
-
-type Address = {
-  street: string
-  suite: string
-  city: string
-  zipcode: string
-  geo: Geo
+  catchPhrase: string
+  name: string
 }
 
 type Geo = {
   lat: string
   lng: string
+}
+
+type Address = {
+  city: string
+  geo: Geo
+  street: string
+  suite: string
+  zipcode: string
+}
+
+export type User = {
+  address: Address
+  company: Company
+  email: string
+  id: number
+  name: string
+  phone: string
+  username: string
+  website: string
 }

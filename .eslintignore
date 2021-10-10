@@ -1,0 +1,6 @@
+build
+coverage
+node_modules
+
+# I don't know why, but I get an error...
+.eslintrc.js
