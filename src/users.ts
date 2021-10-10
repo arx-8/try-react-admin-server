@@ -1,7 +1,7 @@
 import type { Request, Response } from "express"
 import { flow, orderBy, slice } from "lodash/fp"
 import type { User } from "./domain/User"
-import { NumberLike, OrderType, orderTypes } from "./type"
+import { ErrorResponseBody, NumberLike, OrderType, orderTypes } from "./type"
 import { objectKeys, toLowerCase } from "./utils"
 
 type UserForPartialResponse = Pick<User, "id">
@@ -240,10 +240,6 @@ const data: User[] = [
   },
 ]
 
-type ErrorResponseBody = {
-  message: string
-}
-
 export const getUsers = (
   req: Request<
     never,
@@ -303,7 +299,10 @@ export const getUsers = (
   res.send(result)
 }
 
-export const getUserByID = (req: Request<{ id: string }>, res: Response) => {
+export const getUserByID = (
+  req: Request<{ id: string }>,
+  res: Response<User | ErrorResponseBody>
+) => {
   res.type("application/json")
 
   const found = data.find((d) => d.id === Number(req.params.id))

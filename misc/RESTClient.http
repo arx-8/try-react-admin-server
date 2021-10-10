@@ -1,4 +1,9 @@
-### users
+
+###############
+# users
+###############
+
+### list
 
 GET http://localhost:9999/users
 
@@ -6,15 +11,15 @@ GET http://localhost:9999/users
 
 GET http://localhost:9999/users?_start=1&_end=3&_order=ASC&_sort=name
 
-### user by id
+### get detail by id
 
 GET http://localhost:9999/users/3
 
-### delete user by id
+### delete by id
 
 DELETE http://localhost:9999/users/9
 
-### update user by id
+### update by id
 
 PUT http://localhost:9999/users/3
 content-type: application/json
@@ -40,17 +45,52 @@ content-type: application/json
   }
 }
 
-### posts
+###############
+# posts
+###############
 
+### list
 GET http://localhost:9999/posts
 
+### get detail by id
 
-### original
+GET http://localhost:9999/posts/3
 
-#### users
+### delete by id
+
+DELETE http://localhost:9999/posts/3
+
+### update by id
+
+PUT http://localhost:9999/posts/3
+content-type: application/json
+
+{
+  "id": 3,
+  "userId": 3,
+  "title": "A edited title",
+  "body": "A edited body"
+}
+
+### New create
+
+POST http://localhost:9999/posts
+content-type: application/json
+
+{
+  "userId": 3,
+  "title": "A new title",
+  "body": "A new body"
+}
+
+###################################
+# original
+###################################
+
+### users
 GET http://jsonplaceholder.typicode.com/users?_end=25&_order=ASC&_sort=id&_start=0
 
-#### update user by id
+### update user by id
 PUT http://jsonplaceholder.typicode.com/users/1
 content-type: application/json
 
@@ -75,5 +115,5 @@ content-type: application/json
   }
 }
 
-#### posts
+### posts
 GET http://jsonplaceholder.typicode.com/posts?_end=35&_order=ASC&_sort=id&_start=0

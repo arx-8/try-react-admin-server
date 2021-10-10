@@ -1,5 +1,10 @@
 import type { Request, Response } from "express"
 import { Post } from "./domain/Post"
+import { ErrorResponseBody } from "./type"
+import { objectKeys } from "./utils"
+
+type PostForPartialResponse = Pick<Post, "id">
+type PostForNewCreate = Omit<Post, "id">
 
 const data: Post[] = [
   {
@@ -220,4 +225,83 @@ export const getPosts = (_req: Request<never>, res: Response<Post[]>) => {
   res.type("application/json")
   res.setHeader("x-total-count", data.length)
   res.send(data)
+}
+
+export const getPostByID = (
+  req: Request<{ id: string }>,
+  res: Response<Post | ErrorResponseBody>
+) => {
+  res.type("application/json")
+
+  const found = data.find((d) => d.id === Number(req.params.id))
+  if (found == null) {
+    res.statusCode = 404
+    res.send({ message: "Data not found" })
+    return
+  }
+  res.send(found)
+}
+
+export const putPostByID = (
+  req: Request<{ id: string }, unknown, Post>,
+  res: Response<PostForPartialResponse | ErrorResponseBody>
+) => {
+  res.type("application/json")
+
+  const found = data.find((d) => d.id === Number(req.params.id))
+  if (found == null) {
+    res.statusCode = 404
+    res.send({ message: "Data not found" })
+    return
+  }
+
+  // エラー発生時の挙動確認のため
+  if (req.body.title === "error") {
+    res.statusCode = 400
+    res.send({
+      message: "Bad request",
+    })
+    return
+  }
+
+  objectKeys(found).forEach((key) => {
+    // @ts-expect-error 問題ない get value by key
+    found[key] = req.body[key]
+  })
+
+  res.send({ id: found.id })
+}
+
+export const deletePostByID = (
+  req: Request<{ id: string }, unknown>,
+  res: Response<PostForPartialResponse | ErrorResponseBody>
+) => {
+  res.type("application/json")
+
+  const foundIndex = data.findIndex((d) => d.id === Number(req.params.id))
+  const found = data[foundIndex]
+  if (foundIndex == null || found == null) {
+    res.statusCode = 404
+    res.send({ message: "Data not found" })
+    return
+  }
+
+  data.splice(foundIndex, 1)
+
+  res.send({ id: found.id })
+}
+
+export const createPost = (
+  req: Request<never, PostForPartialResponse, PostForNewCreate>,
+  res: Response<PostForPartialResponse | ErrorResponseBody>
+) => {
+  res.type("application/json")
+
+  const nextID = (data[data.length - 1]?.id ?? 0) + 1
+  data.push({
+    ...req.body,
+    id: nextID,
+  })
+
+  res.send({ id: nextID })
 }

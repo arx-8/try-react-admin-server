@@ -1,5 +1,11 @@
 import express from "express"
-import { getPosts } from "./posts"
+import {
+  createPost,
+  deletePostByID,
+  getPostByID,
+  getPosts,
+  putPostByID,
+} from "./posts"
 import {
   createUser,
   deleteUserByID,
@@ -38,9 +44,16 @@ app.listen(9999, () => {
   console.log("Start on http://localhost:9999/")
 })
 
+// users
 app.get("/users", getUsers)
-app.get("/users/:id", getUserByID)
 app.post("/users", createUser)
+app.get("/users/:id", getUserByID)
 app.put("/users/:id", putUserByID)
 app.delete("/users/:id", deleteUserByID)
+
+// posts
 app.get("/posts", getPosts)
+app.post("/posts", createPost)
+app.get("/posts/:id", getPostByID)
+app.put("/posts/:id", putPostByID)
+app.delete("/posts/:id", deletePostByID)
