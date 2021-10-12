@@ -5,6 +5,7 @@ import {
   ErrorResponseBody,
   FlowAbleFunction,
   GetListRequestParams,
+  ListResponse,
   orderTypes,
 } from "../../utils/type"
 import { objectKeys, toLowerCase } from "../../utils/utils"
@@ -229,7 +230,7 @@ const data: Post[] = [
 
 export const getPosts = (
   req: Request<never, never, never, GetListRequestParams<Post>>,
-  res: Response<Post[] | ErrorResponseBody>
+  res: Response<ListResponse<Post> | ErrorResponseBody>
 ): void => {
   res.type("application/json")
 
@@ -284,10 +285,12 @@ export const getPosts = (
   // pagination
   flowFuncs.push(slice(maybeStart ?? 0, maybeEnd ?? 10))
 
-  const result = flow(flowFuncs)(data)
+  const result: Post[] = flow(flowFuncs)(data)
 
   res.setHeader("x-total-count", data.length)
-  res.send(result)
+  res.send({
+    data: result,
+  })
 }
 
 export const getPostByID = (

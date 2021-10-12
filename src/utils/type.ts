@@ -31,3 +31,11 @@ export type GetListRequestParams<T extends Record<string, any>> = Readonly<
  * for lodash flow (left to right)
  */
 export type FlowAbleFunction = <T>(collection2: T[]) => T[]
+
+/**
+ * Do not response top level array json
+ * @see https://stackoverflow.com/questions/3503102/what-are-top-level-json-arrays-and-why-are-they-a-security-risk
+ */
+export type ListResponse<T> = {
+  data: T[]
+}

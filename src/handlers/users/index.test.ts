@@ -20,9 +20,9 @@ describe("/users", () => {
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "authorization, x-total-count, content-type",
           "connection": "close",
-          "content-length": "4094",
+          "content-length": "4103",
           "content-type": "application/json; charset=utf-8",
-          "etag": "W/\\"ffe-j09SC4YQdLuMD8NwHHTG+5+578A\\"",
+          "etag": "W/\\"1007-CnvV+65m9ahhsFPY3l3pj61nztw\\"",
           "x-powered-by": "Express",
           "x-total-count": "10",
         }

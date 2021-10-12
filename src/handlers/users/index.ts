@@ -5,6 +5,7 @@ import {
   ErrorResponseBody,
   FlowAbleFunction,
   GetListRequestParams,
+  ListResponse,
   orderTypes,
 } from "../../utils/type"
 import { objectKeys, toLowerCase } from "../../utils/utils"
@@ -247,7 +248,7 @@ const data: User[] = [
 
 export const getUsers = (
   req: Request<never, never, never, GetListRequestParams<User>>,
-  res: Response<User[] | ErrorResponseBody>
+  res: Response<ListResponse<User> | ErrorResponseBody>
 ): void => {
   res.type("application/json")
 
@@ -302,10 +303,12 @@ export const getUsers = (
   // pagination
   flowFuncs.push(slice(maybeStart ?? 0, maybeEnd ?? 10))
 
-  const result = flow(flowFuncs)(data)
+  const result: User[] = flow(flowFuncs)(data)
 
   res.setHeader("x-total-count", data.length)
-  res.send(result)
+  res.send({
+    data: result,
+  })
 }
 
 export const getUserByID = (
