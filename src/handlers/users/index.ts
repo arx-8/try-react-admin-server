@@ -15,6 +15,20 @@ type UserForNewCreate = Omit<User, "id">
 
 const data: User[] = [
   {
+    _favs: [
+      {
+        id: 1,
+        name: "apple",
+      },
+      {
+        id: 2,
+        name: "orange",
+      },
+      {
+        id: 3,
+        name: "meet",
+      },
+    ],
     address: {
       city: "Gwenborough",
       geo: {
@@ -38,6 +52,12 @@ const data: User[] = [
     website: "hildegard.org",
   },
   {
+    _favs: [
+      {
+        id: 2,
+        name: "orange",
+      },
+    ],
     address: {
       city: "Wisokyburgh",
       geo: {
@@ -61,6 +81,7 @@ const data: User[] = [
     website: "anastasia.net",
   },
   {
+    _favs: [],
     address: {
       city: "McKenziehaven",
       geo: {
@@ -84,6 +105,7 @@ const data: User[] = [
     website: "ramiro.info",
   },
   {
+    _favs: [],
     address: {
       city: "South Elvis",
       geo: {
@@ -106,7 +128,10 @@ const data: User[] = [
     username: "Karianne",
     website: "kale.biz",
   },
+
   {
+    _favs: [],
+
     address: {
       city: "Roscoeview",
       geo: {
@@ -130,6 +155,8 @@ const data: User[] = [
     website: "demarco.info",
   },
   {
+    _favs: [],
+
     address: {
       city: "South Christy",
       geo: {
@@ -153,6 +180,7 @@ const data: User[] = [
     website: "ola.org",
   },
   {
+    _favs: [],
     address: {
       city: "Howemouth",
       geo: {
@@ -176,6 +204,20 @@ const data: User[] = [
     website: "elvis.io",
   },
   {
+    _favs: [
+      {
+        id: 1,
+        name: "apple",
+      },
+      {
+        id: 2,
+        name: "orange",
+      },
+      {
+        id: 3,
+        name: "meet",
+      },
+    ],
     address: {
       city: "Aliyaview",
       geo: {
@@ -199,6 +241,7 @@ const data: User[] = [
     website: "jacynthe.com",
   },
   {
+    _favs: [],
     address: {
       city: "Bartholomebury",
       geo: {
@@ -222,6 +265,7 @@ const data: User[] = [
     website: "conrad.com",
   },
   {
+    _favs: [],
     address: {
       city: "Lebsackbury",
       geo: {

@@ -18,6 +18,10 @@ type Address = {
 }
 
 export type User = {
+  _favs: {
+    id: number
+    name: string
+  }[]
   address: Address
   company: Company
   email: string
